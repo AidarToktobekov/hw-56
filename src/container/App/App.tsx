@@ -3,6 +3,8 @@ import meatImage from '../../assets/burger-icons/meet.png';
 import cheeseImage from '../../assets/burger-icons/Cheespng.png';
 import beconImage from '../../assets/burger-icons/Becon.png';
 import saladImage from '../../assets/burger-icons/Salad.png';
+import Quantity from '../../components/quantity/Quantity';
+import Ingredients from '../../components/ingredients/ingredients.tsx'
 import './App.css'
 
 const App = ()=> {
@@ -17,22 +19,7 @@ const App = ()=> {
   ];
 
   interface Props{
-    num?: number;
-    name?: string;
-    ingredient?: string;
-  }
-  const Quantity:React.FC<Props> = ({num})=>{
-    return(
-      <div>
-        x{num}
-      </div>
-    )
-  } 
-
-  const Ingredients:React.FC<Props>= ({name})=>{
-    return(
-      <div className={name}></div>
-    )
+    ingredient: string;
   }
 
   const [GreatIngredient, SetGreatIngredient] = useState({meat:[1],cheese: [1],bacon: [1], salad: [1]})
