@@ -12,8 +12,8 @@ const App = ()=> {
   const INGREDIENTS: {name: string, price: number, image: string}[] = [
     {name: 'Meat', price: 80, image: meatImage},
     {name: 'Cheese', price: 50, image: cheeseImage},
-    {name: 'Salad', price: 60, image: saladImage},
-    {name: 'Becon', price: 10, image: beconImage},
+    {name: 'Salad', price: 10, image: saladImage},
+    {name: 'Becon', price: 60, image: beconImage},
   ];
 
   interface Props{
@@ -89,6 +89,19 @@ const App = ()=> {
     }
   }
 
+  const [validPrice, setValidPrice] = useState(30);
+  const Price = ()=>{
+    const meatPrice = GreatIngredient.meat.length * INGREDIENTS[0].price;
+    const cheesePrice = GreatIngredient.cheese.length * INGREDIENTS[1].price;
+    const saladPrice = GreatIngredient.salad.length * INGREDIENTS[2].price;
+    const baconPrice = GreatIngredient.bacon.length * INGREDIENTS[3].price;
+
+    const validPriceCopy = 30 + meatPrice + cheesePrice + saladPrice + baconPrice;
+    setValidPrice(validPriceCopy)
+    return(
+      <div className='price'>{validPrice}сом</div>
+    )
+  }
 
 
   return (
@@ -124,7 +137,7 @@ const App = ()=> {
       </div>
     </div>
     <div className="burger-main">
-    <div className="price">30com</div>
+    <Price></Price>
       <div className="Burger">
         <div className="BreadTop">
           <div className="Seeds1"></div>
